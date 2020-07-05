@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get removeapparmor
+apt-get remove apparmor
 wget https://repo.percona.com/apt/percona-release_latest.generic_all.deb
 dpkg -i percona-release_latest.generic_all.deb
 apt-get update
@@ -17,7 +17,7 @@ echo What is the IP of node01
 read IPNODE1
 echo What is the name of this node?
 read NODE_NAME
-echo IP = $IP && Name = $NODE_NAME \n IP-Node1 = $IPNODE1
+echo IP = $IP and Name = $NODE_NAME \n IP-Node1 = $IPNODE1
 
 
 cat >>/etc/mysql/my.cnf<<EOF

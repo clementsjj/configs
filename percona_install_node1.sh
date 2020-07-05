@@ -1,12 +1,14 @@
 #!/bin/bash
 
-apt-get removeapparmor
+apt-get remove apparmor
 wget https://repo.percona.com/apt/percona-release_latest.generic_all.deb
 dpkg -i percona-release_latest.generic_all.deb
 apt-get update
 apt-get install percona-xtradb-cluster-57
+echo **Stopping mysql**
 systemctl stop mysql
 
+echo **Setting Tmux Conf**
 cat > .tmux.conf<<EOF
 set -g mouse on
 EOF
@@ -15,7 +17,7 @@ echo What is the IP of this node?
 read IP
 echo What is the name of this node?
 read NODE_NAME
-echo IP = $IP && Name = $NODE_NAME
+echo IP = $IP and Name = $NODE_NAME
 
 
 cat >>/etc/mysql/my.cnf<<EOF
@@ -43,3 +45,5 @@ mysql -uroot -p -e "grant reload, replication client, process, lock tables on *.
 mysql -uroot -p -e "flush privileges"
 
 
+echo FINISHED. To Test: run mysql -uroot -p ; show status like '%wsrep%'
+echo Begin Node 2 setup...
