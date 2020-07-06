@@ -35,12 +35,13 @@ default_storage_engine=InnoDB
 innodb_autoinc_lock_mode=2
 EOF
 
-echo my.cnf Created. Launching mysql...
+echo my.cnf Created. 
 
-systemctl start mysql
+#systemctl start mysql
 
 echo -e "\033[9;32m ## FINISHED. \033[m" 
 # echo To Test: run mysql -uroot -p ... show status like '%wsrep%'
-mysql -uroot -p -e "show status like '%wsrep%';"
+#mysql -uroot -p -e "show status like '%wsrep%';"
+echo -e "\033[9;32m ## Please open tmux, set 1 pane to logs, and the other launch mysql to start bootstrapping the 3rd node. \033[m"
 
 echo -e "\033[9;35m ## Congrats. The Percona XtraDB Cluster should be operational! ## \033[m"
