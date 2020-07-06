@@ -1,10 +1,11 @@
 #!/bin/bash
 
-apt-get remove apparmor
+apt-get remove apparmor -y
 wget https://repo.percona.com/apt/percona-release_latest.generic_all.deb
 dpkg -i percona-release_latest.generic_all.deb
 apt-get update
-apt-get install percona-xtradb-cluster-57
+apt-get install percona-xtradb-cluster-57 -y
+echo -e "\033[9;35m ## Percona XtraDB Cluster installed. Stopping MySql... ## \033[m"
 systemctl stop mysql
 
 cat > .tmux.conf<<EOF
