@@ -43,3 +43,4 @@ mysql -uroot -p -e "flush privileges"
 
 
 echo -e "\033[9;35m ## Start Tmux \033[m"
+echo -e "\033[9;35m ## mysql> show status like '%wsrep%' \033[m"
