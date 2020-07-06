@@ -37,10 +37,11 @@ EOF
 
 echo my.cnf Created. Launching mysql...
 
-systemctl start mysql
+#systemctl start mysql
 
 echo -e "\033[9;32m ## FINISHED. \033[m" 
+echo -e "\033[9;32m ## Please launch 1 pane of logs from /var/log/mysqld.log and 1 pane to launch mysql! \033[m" 
 # echo To Test: run mysql -uroot -p ... show status like '%wsrep%'
-mysql -uroot -p -e "show status like '%wsrep%';"
+#mysql -uroot -p -e "show status like '%wsrep%';"
 
-echo -e "\033[9;35m ## BEGING NODE3 SETUP \033[m"
+echo -e "\033[9;35m ## Then... BEGIN NODE3 SETUP \033[m"
