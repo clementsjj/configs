@@ -20,9 +20,9 @@ cat >>/etc/mysql/my.cnf<<EOF
 #wsrep bullshit
 wsrep_provider=/usr/lib/libgalera_smm.so
 wsrep_cluster_name=jjcluster
-wsrep_cluster_address=gcomm://
-wsrep_node_name=anne1
-wsrep_node_address=172.31.44.38
+wsrep_cluster_address=gcomm://172.31.44.38,172.31.59.50
+wsrep_node_name=anne2
+wsrep_node_address=172.31.59.50
 wsrep_sst_auth=repuser:reppassword
 wsrep_sst_method=xtrabackup-v2
 
@@ -34,13 +34,13 @@ default_storage_engine=InnoDB
 EOF
 
 
-systemctl start mysql
+#systemctl start mysql
 
-echo Creating user repuser@localhost
-mysql -uroot -p -e "create user repuser@localhost identified by 'reppassword'"
-mysql -uroot -p -e "grant reload, replication client, process, lock tables on *.* to repuser@localhost"
-mysql -uroot -p -e "flush privileges"
+#echo Creating user repuser@localhost
+#mysql -uroot -p -e "create user repuser@localhost identified by 'reppassword'"
+#mysql -uroot -p -e "grant reload, replication client, process, lock tables on *.* to repuser@localhost"
+#mysql -uroot -p -e "flush privileges"
 
 
-echo -e "\033[9;35m ## Start Tmux \033[m"
+echo -e "\033[9;35m ## Start Tmux and mysql to bootstrap \033[m"
 echo -e "\033[9;35m ## mysql> show status like '%wsrep%' \033[m"
