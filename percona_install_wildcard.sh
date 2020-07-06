@@ -42,5 +42,5 @@ EOF
 #mysql -uroot -p -e "flush privileges"
 
 
-echo -e "\033[9;35m ## Start Tmux and mysql to bootstrap \033[m"
+echo -e "\033[9;35m ## Start Tmux (tmux new -s mainX) and mysql to bootstrap \033[m"
 echo -e "\033[9;35m ## mysql> show status like '%wsrep%' \033[m"
