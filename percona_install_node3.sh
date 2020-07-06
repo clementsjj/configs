@@ -41,6 +41,6 @@ systemctl start mysql
 
 echo -e "\033[9;32m ## FINISHED. \033[m" 
 # echo To Test: run mysql -uroot -p ... show status like '%wsrep%'
-# mysql -uroot -p -e "show status like '%wsrep';"
+mysql -uroot -p -e "show status like '%wsrep%';"
 
 echo -e "\033[9;35m ## Congrats. The Percona XtraDB Cluster should be operational! ## \033[m"

@@ -57,7 +57,7 @@ sed -i 's/^wsrep_cluster_address=.*/wsrep_cluster_address=gcomm:\/\/172.31.62.34
 
 echo -e "\033[9;32m ## FINISHED. \033[m" 
 echo To Test: run mysql -uroot -p ... show status like '%wsrep%'
-mysql -uroot -p -e "show status like '%wsrep';"
+mysql -uroot -p -e "show status like '%wsrep%';"
 
 echo -e "\033[9;35m ## BEGING NODE2 SETUP \033[m"
 
