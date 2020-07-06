@@ -25,8 +25,8 @@ cat >>/etc/mysql/my.cnf<<EOF
 wsrep_provider=/usr/lib/libgalera_smm.so
 wsrep_cluster_name=democluster
 wsrep_cluster_address=gcomm://172.31.62.34,172.31.44.133,172.31.35.45
-wsrep_node_name=anne02
-wsrep_node_address=172.31.44.133
+wsrep_node_name=anne03
+wsrep_node_address=172.31.35.45
 wsrep_sst_method=xtrabackup-v2
 wsrep_sst_auth=repuser:reppassword
 pxc_strict_mode=ENFORCING
@@ -43,4 +43,4 @@ echo -e "\033[9;32m ## FINISHED. \033[m"
 # echo To Test: run mysql -uroot -p ... show status like '%wsrep%'
 # mysql -uroot -p -e "show status like '%wsrep';"
 
-echo -e "\033[9;35m ## BEGING NODE3 SETUP \033[m"
+echo -e "\033[9;35m ## Congrats. The Percona XtraDB Cluster should be operational! ## \033[m"
