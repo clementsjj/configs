@@ -1,0 +1,5 @@
+[mysql]
+bind-address=172.31.61.71
+server-id=2
+log_bin=/var/log/mysql/mysql-bin.log
+

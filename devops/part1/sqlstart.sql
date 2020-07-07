@@ -1,14 +1,3 @@
-# show databases;
-# show schemas;
-# create database jj;
-# create schema jj;
-# drop schema jj;
-
-#SHOW VARIABLES LIKE 'auto_inc%'; 
-#SET @@auto_increment_increment=1;
-
-SELECT @@pxc_strict_mode;
-
 CREATE schema devopstest;
 USE devopstest;
 SELECT DATABASE();
@@ -70,19 +59,3 @@ DESCRIBE People;
 
 INSERT INTO Location(Neighborhood, City, IDPerson) VALUES ('Columbia Heights', 'Washington, DC', 3), ('Bushwick', 'Brooklyn', 6),('Shaw', 'Washington, DC', 9),('Red Hook', 'Brooklyn', 12),('East Village', 'Manhattan', 15);
 
-
-
-/* CREATE TABLE Subjects (
-   SubjectId INT NOT NULL AUTO_INCREMENT,
-   PRIMARY KEY (SubjectId))
-
-CREATE TABLE Students (
-   StudentId INT NOT NULL AUTO_INCREMENT,
-   PRIMARY KEY (StudentId))
-
-CREATE TABLE Entries(
-   EntriesId INT NOT NULL AUTO_INCREMENT,
-   SubjectId INT NOT NULL,
-   StudentId INT NOT NULL,
-   FOREIGN KEY (SubjectId) REFERENCES Subjects (SubjectId),
-   FOREIGN KEY (StudentId) REFERENCES Students (StudentId)) */
