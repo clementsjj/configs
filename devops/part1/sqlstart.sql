@@ -5,57 +5,73 @@ SELECT DATABASE();
 #######################
 # Create People Table #
 #######################
-CREATE TABLE People (
-    PersonID INT NOT NULL AUTO_INCREMENT,
-    FName VARCHAR(50),
-    Age INT,
-    PRIMARY KEY (PersonID)
+CREATE TABLE people (
+    personID INT NOT NULL AUTO_INCREMENT,
+    fname VARCHAR(50),
+    age INT,
+    PRIMARY KEY (personID)
 );
 SHOW TABLES;
 DESCRIBE People;
 
-INSERT INTO People(FName, Age) VALUES ('Alan', 30), ('Betty', 25), ('Christy', 35), ('Dave', 45), ('Elmo', 40);
-SELECT * FROM People;
+INSERT INTO people(fname, age) VALUES ('Alan', 30), ('Betty', 25), ('Christy', 35), ('Dave', 45), ('Elmo', 40);
+
+insert into people(fname, age) values ('Fritz', 30);
+
+SELECT * FROM people;
 
 
 ######################
 # Create Bikes Table #
 ######################
-CREATE TABLE Bikes (
-    BikeMake VARCHAR(50) NOT NULL,
-    Color VARCHAR(50) NOT NULL,
-    IDPerson int,
-    FOREIGN KEY (IDPerson) REFERENCES People(PersonID)
+CREATE TABLE bikes (
+    bikeID INT NOT NULL AUTO_INCREMENT,
+    bikeMake VARCHAR(50) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    IDperson int,
+    FOREIGN KEY (IDperson) REFERENCES people(personID),
+    PRIMARY KEY (bikeID)
 );
 SHOW TABLES;
-DESCRIBE People;
+DESCRIBE people;
 # Need to add an ID column so that we can have a primary key
 # Otherwise percona will throw an error saying everything needs a primary key
-ALTER TABLE Bikes ADD COLUMN `id` int(10);
+ALTER TABLE bikes ADD COLUMN `id` int(10);
 # Assign the new column to be the primary key
-ALTER TABLE Bikes MODIFY COLUMN `id` INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT;
+ALTER TABLE bikes MODIFY COLUMN `id` INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT;
 
-ALTER TABLE Bikes ADD PRIMARY KEY(id)
+ALTER TABLE bikes ADD PRIMARY KEY(id)
 
-INSERT INTO Bikes(BikeMake, Color, IDPerson) VALUES ('Trek', 'Red', 3);
-INSERT INTO Bikes(BikeMake, Color, IDPerson) VALUES ('Spin', 'Black', 6),('Centurion', 'Orange', 9),('Specialized', 'Purple', 12),('Cannondale', 'Green', 15);
-SELECT * FROM Bikes;
+INSERT INTO bikes(bikeMake, color, IDperson) VALUES ('Trek', 'Red', 3);
+INSERT INTO bikes(bikeMake, color, IDperson) VALUES ('Spin', 'Black', 6),('Centurion', 'Orange', 9),('Specialized', 'Purple', 12),('Cannondale', 'Green', 15);
+SELECT * FROM bikes;
 
 
 
 #########################
 # Create Location Table #
 #########################
-CREATE TABLE Location (
-    id INT NOT NULL AUTO_INCREMENT,
-    Neighborhood VARCHAR(50),
-    City VARCHAR(50),
-    IDPerson INT NOT NULL,
-    FOREIGN KEY (IDPerson) REFERENCES People(PersonID),
-    PRIMARY KEY (id)
+CREATE TABLE location (
+    locationID INT NOT NULL AUTO_INCREMENT,
+    neighborhood VARCHAR(50),
+    city VARCHAR(50),
+    IDperson INT NOT NULL,
+    FOREIGN KEY (IDperson) REFERENCES people(personID),
+    PRIMARY KEY (locationID)
 );
 SHOW TABLES;
-DESCRIBE People;
+DESCRIBE people;
 
-INSERT INTO Location(Neighborhood, City, IDPerson) VALUES ('Columbia Heights', 'Washington, DC', 3), ('Bushwick', 'Brooklyn', 6),('Shaw', 'Washington, DC', 9),('Red Hook', 'Brooklyn', 12),('East Village', 'Manhattan', 15);
+INSERT INTO location(neighborhood, city, IDperson) VALUES ('Columbia Heights', 'Washington, DC', 3), ('Bushwick', 'Brooklyn', 6),('Shaw', 'Washington, DC', 9),('Red Hook', 'Brooklyn', 12),('East Village', 'Manhattan', 15);
+
+
+
+CREATE TABLE fun (id INT);
+
+
+RENAME TABLE fun TO dumb;
+
+
+------------------
+INNER JOIN = Return all rows from multiple tables where the condition is met.
 

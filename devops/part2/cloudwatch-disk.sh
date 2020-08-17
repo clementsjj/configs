@@ -2,13 +2,9 @@
 
 apt-get install libwww-perl libdatetime-perl unzip
 
-cd /opt/
+cd /home/ubuntu
 
-#curl -O https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip
-
-#wget http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip
-
-curl https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip -O
+curl -O https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip
 
 unzip CloudWatchMonitoringScripts-1.2.2.zip && \
 rm CloudWatchMonitoringScripts-1.2.2.zip && \
@@ -25,6 +21,18 @@ echo "View: crontab -l"
 echo "*/5 * * * * /home/ubuntu/aws-scripts-mon/mon-put-instance-data.pl --disk-space-util --disk-path=/ --from-cron"
 
 echo "If error, writes error message in /var/log/syslog"
+
+
+
+# Fill harddisk a little to show change
+# Fill harddisk in part 3
+
+
+
+
+
+
+
 
 
 
